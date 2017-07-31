@@ -21,7 +21,7 @@ public class TestAdapter extends BaseAdapter {
 
     public TestAdapter(Context context, ArrayList<Object> personArray) {
         this.personArray = personArray;
-        this.inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -47,10 +47,9 @@ public class TestAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (getItem(position) instanceof Person) {
+        if (getItem(position) instanceof TestModel) {
             return TYPE_PERSON;
         }
-
         return TYPE_DIVIDER;
     }
 
@@ -75,20 +74,18 @@ public class TestAdapter extends BaseAdapter {
 
         switch (type) {
             case TYPE_PERSON:
-                Person person = (Person)getItem(position);
-                TextView name = (TextView)convertView.findViewById(R.id.nameLabel);
-                TextView address = (TextView)convertView.findViewById(R.id.addressLabel);
-                name.setText(person.getName());
-                address.setText(person.getAddress());
+                TestModel testModel = (TestModel) getItem(position);
+                TextView name = (TextView) convertView.findViewById(R.id.nameLabel);
+                TextView address = (TextView) convertView.findViewById(R.id.addressLabel);
+                name.setText(testModel.getProduct_name());
+                address.setText(testModel.getProduct_ref_number());
                 break;
             case TYPE_DIVIDER:
-                TextView title = (TextView)convertView.findViewById(R.id.headerTitle);
-                String titleString = (String)getItem(position);
+                TextView title = (TextView) convertView.findViewById(R.id.headerTitle);
+                String titleString = (String) getItem(position);
                 title.setText(titleString);
                 break;
         }
-
         return convertView;
     }
-
 }

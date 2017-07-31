@@ -1,5 +1,7 @@
 package com.mofosys.project.recyclerviewwithheader;
 
+import java.util.Date;
+
 /**
  * Created by girish on 29/6/17.
  */
@@ -10,7 +12,16 @@ public class TestModel {
     private String supplier_product_price;
     private String product_ref_number;
     private String shipment_qty;
+    private Date date_d;
 
+
+    public Date getDate_d() {
+        return date_d;
+    }
+
+    public void setDate_d(Date date_d) {
+        this.date_d = date_d;
+    }
 
     public String getProduct_name() {
         return product_name;
