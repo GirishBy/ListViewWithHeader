@@ -20,13 +20,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
     ArrayList<TestModel> testModels;
-    ArrayList arrayList_new;
+    ArrayList<Object> arrayList_new;
+    private int aaa = 0, bbb = 0, ccc = 0, ddd = 0, eee = 0;
     boolean jan_bool = true, feb_bool = true, march_bool = true, april_bool = true, may_bool = true, june_bool = true, july_bool = true, august_bool = true;
+    private int feb_total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,31 +38,6 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.test);
         testModels = new ArrayList<>();
         arrayList_new = new ArrayList();
-        Person john = new Person("John", "123 Fake Dr.");
-        Person jane = new Person("Jane", "456 Unreal Ln.");
-        Person james = new Person("James", "789 Notreal Circle");
-        Person sally = new Person("Sally", "147 Seashell Place");
-        Person mario = new Person("Mario", "135 Bayside Ct.");
-        Person luigi = new Person("Luigi", "246 Bowser Castle");
-        Person peach = new Person("Peach", "7911 Peach St.");
-        Person toad = new Person("Toad", "81012 Blue Blvd");
-
-        ArrayList<Object> people = new ArrayList<>();
-        people.add("Real People");
-        people.add(john);
-        people.add(jane);
-        people.add(james);
-        people.add(sally);
-        people.add("Fake People");
-        people.add(mario);
-        people.add(luigi);
-        people.add(peach);
-        people.add(toad);
-        people.add("Real People");
-        people.add(john);
-        people.add(jane);
-        people.add(james);
-        people.add(sally);
 
         listView.setAdapter(new TestAdapter(this, arrayList_new));
 
@@ -145,16 +123,54 @@ public class MainActivity extends AppCompatActivity {
                 int i1 = date.getMonth();
 
                 if (i1 == 0) {
+
+                    aaa += Integer.parseInt(testModels.get(i).getShipment_qty());
+                }
+
+                if (i1 == 1) {
+
+                    feb_total += Integer.parseInt(testModels.get(i).getShipment_qty());
+                }
+
+                if (i1 == 2) {
+
+                    bbb += Integer.parseInt(testModels.get(i).getShipment_qty());
+                }
+
+                if (i1 == 3) {
+
+                    ccc += Integer.parseInt(testModels.get(i).getShipment_qty());
+                }
+
+                if (i1 == 5) {
+
+                    ddd += Integer.parseInt(testModels.get(i).getShipment_qty());
+                }
+
+                if (i1 == 6) {
+
+                    eee += Integer.parseInt(testModels.get(i).getShipment_qty());
+                }
+            }
+
+
+            for (int i = 0; i < testModels.size(); i++) {
+
+                Date date = testModels.get(i).getDate_d();
+                int i1 = date.getMonth();
+
+                if (i1 == 0) {
                     if (jan_bool) {
-                        arrayList_new.add("JAN");
+                        arrayList_new.add("JAN" + "/" + String.valueOf(aaa));
                         jan_bool = false;
                     }
                     arrayList_new.add(testModels.get(i));
+                    aaa += Integer.parseInt(testModels.get(i).getShipment_qty());
 
                 } else if (i1 == 1) {
 
                     if (feb_bool) {
-                        arrayList_new.add("FEB");
+                        arrayList_new.add("FEB" + "/" + String.valueOf(feb_total));
                         feb_bool = false;
                     }
                     arrayList_new.add(testModels.get(i));
@@ -162,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (i1 == 2) {
 
                     if (march_bool) {
-                        arrayList_new.add("MARCH");
+                        arrayList_new.add("MARCH" + "/" + String.valueOf(bbb));
                         march_bool = false;
                     }
                     arrayList_new.add(testModels.get(i));
@@ -170,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (i1 == 3) {
 
                     if (april_bool) {
-                        arrayList_new.add("APRIL");
+                        arrayList_new.add("APRIL" + "/" + String.valueOf(ccc));
                         april_bool = false;
                     }
                     arrayList_new.add(testModels.get(i));
@@ -178,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (i1 == 4) {
 
                     if (may_bool) {
-                        arrayList_new.add("MAY");
+                        arrayList_new.add("MAY/05");
                         may_bool = false;
                     }
                     arrayList_new.add(testModels.get(i));
@@ -186,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (i1 == 5) {
 
                     if (june_bool) {
-                        arrayList_new.add("JUNE");
+                        arrayList_new.add("JUNE" + "/" + String.valueOf(ddd));
                         june_bool = false;
                     }
                     arrayList_new.add(testModels.get(i));
@@ -194,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (i1 == 6) {
 
                     if (july_bool) {
-                        arrayList_new.add("JULY");
+                        arrayList_new.add("JULY" + "/" + String.valueOf(eee));
                         july_bool = false;
                     }
                     arrayList_new.add(testModels.get(i));
@@ -202,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (i1 == 7) {
 
                     if (august_bool) {
-                        arrayList_new.add("AUGUST");
+                        arrayList_new.add("AUGUST/08");
                         august_bool = false;
                     }
                     arrayList_new.add(testModels.get(i));

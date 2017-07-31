@@ -1,6 +1,8 @@
 package com.mofosys.project.recyclerviewwithheader;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by girish on 31/7/17.
@@ -18,9 +21,11 @@ public class TestAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private static final int TYPE_PERSON = 0;
     private static final int TYPE_DIVIDER = 1;
+    private Activity activity;
 
-    public TestAdapter(Context context, ArrayList<Object> personArray) {
+    public TestAdapter(Activity context, ArrayList<Object> personArray) {
         this.personArray = personArray;
+        this.activity = context;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -79,12 +84,32 @@ public class TestAdapter extends BaseAdapter {
                 TextView address = (TextView) convertView.findViewById(R.id.addressLabel);
                 name.setText(testModel.getProduct_name());
                 address.setText(testModel.getProduct_ref_number());
+                TextView textView1 = (TextView) convertView.findViewById(R.id.textView1);
+                TextView textView2 = (TextView) convertView.findViewById(R.id.textView2);
+                CardView cardView = (CardView) convertView.findViewById(R.id.card_view);
+
+                int[] androidColors = activity.getResources().getIntArray(R.array.androidcolors);
+                int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
+
+                cardView.setCardBackgroundColor(randomAndroidColor);
+
+
+                textView1.setText(testModel.getSupplier_product_price());
+                textView2.setText(testModel.getDate_d() + "");
+
                 break;
             case TYPE_DIVIDER:
                 TextView title = (TextView) convertView.findViewById(R.id.headerTitle);
                 String titleString = (String) getItem(position);
-                title.setText(titleString);
+                title.setText(titleString.split("/")[0]);
+
+                TextView textView = (TextView) convertView.findViewById(R.id.textView);
+                String titleString1 = (String) getItem(position);
+                String[] aa = titleString1.split("/");
+                textView.setText(aa[1]);
+
                 break;
+
         }
         return convertView;
     }

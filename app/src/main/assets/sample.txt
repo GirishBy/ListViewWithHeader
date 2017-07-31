@@ -1,10 +1,18 @@
 [
+
   {
     "product_name": "Great ",
     "supplier_product_price": 952.2,
     "product_ref_number": "40306-WH",
     "shipment_qty": 115,
     "date": "2017-01-22"
+  },
+  {
+      "product_name": "Schneider Electric Acti 9 ",
+      "supplier_product_price": 241.2,
+      "product_ref_number": "A9N1P20B",
+      "shipment_qty": 75,
+      "date": "2017-07-22"
   },
   {
     "product_name": "Great White ",
@@ -18,13 +26,6 @@
     "supplier_product_price": 241.2,
     "product_ref_number": "A9N1P25B",
     "shipment_qty": 445,
-    "date": "2017-07-22"
-  },
-  {
-    "product_name": "Schneider Electric Acti 9 ",
-    "supplier_product_price": 241.2,
-    "product_ref_number": "A9N1P20B",
-    "shipment_qty": 75,
     "date": "2017-07-22"
   },
   {
@@ -75,5 +76,12 @@
     "product_ref_number": "A9N1P20B",
     "shipment_qty": 195,
     "date": "2017-03-22"
-  }
+  },
+  {
+      "product_name": "FEB data",
+      "supplier_product_price": 241.2,
+      "product_ref_number": "A9N1P20FEB",
+      "shipment_qty": 195,
+      "date": "2017-02-22"
+    }
 ]

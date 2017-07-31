@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_margin="5dp"
-        android:text="This is a header" />
+        android:text="This is a header"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView"
@@ -20,6 +21,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_margin="5dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textStyle="bold" />
 
 </RelativeLayout>
