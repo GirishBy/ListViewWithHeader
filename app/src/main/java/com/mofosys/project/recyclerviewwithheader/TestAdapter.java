@@ -86,13 +86,12 @@ public class TestAdapter extends BaseAdapter {
                 address.setText(testModel.getProduct_ref_number());
                 TextView textView1 = (TextView) convertView.findViewById(R.id.textView1);
                 TextView textView2 = (TextView) convertView.findViewById(R.id.textView2);
-                CardView cardView = (CardView) convertView.findViewById(R.id.card_view);
+
+                /*CardView cardView = (CardView) convertView.findViewById(R.id.card_view);
 
                 int[] androidColors = activity.getResources().getIntArray(R.array.androidcolors);
                 int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
-
-                cardView.setCardBackgroundColor(randomAndroidColor);
-
+                cardView.setCardBackgroundColor(randomAndroidColor);*/
 
                 textView1.setText(testModel.getSupplier_product_price());
                 textView2.setText(testModel.getDate_d() + "");
